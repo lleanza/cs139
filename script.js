@@ -1,6 +1,6 @@
 // Pre-prompt ChatGPT with a message
 function prePromptChatGPT(apiKey) {
-    const prePrompt = "Hello, ChatGPT!"; // The message you want to pre-prompt ChatGPT with
+    const prePrompt = "Hello, ChatGPT! Act as a responsible friend who provides light medical advice. Always remind users to check with their doctors, but offer general guidelines. Your answers must be 2 short sentences followed by a bullet point list. Remember to be kind!"; // The message you want to pre-prompt ChatGPT with
 
     fetch('https://api.openai.com/v1/completions', {
         method: 'POST',
