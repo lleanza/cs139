@@ -24,18 +24,14 @@ function prePromptChatGPT(apiKey) {
     });
 }
 
-// Get user input for API key
 function getUserAPIKey() {
-    let apiKey;
-    do {
-        apiKey = prompt("Please enter your ChatGPT API Key:");
-    } while (apiKey === null || apiKey.trim() === '');
-
-    if (apiKey) {
-        prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
-    } else {
+    const apiKey = prompt("Please enter your ChatGPT API Key:");
+    
+    if (apiKey === null || apiKey.trim() === '') {
         alert("API key is required to proceed.");
-        getUserAPIKey(); // Prompt again if the user canceled
+        getUserAPIKey(); // Prompt again if the user canceled or entered an empty string
+    } else {
+        prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
     }
 }
 
