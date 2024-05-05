@@ -9,6 +9,10 @@ header {
     text-align: center;
 }
 
+.logo {
+    background-color: transparent; /* Set background color to transparent */
+}
+
 .logo img {
     width: 150px; /* Adjust width as needed */
     height: auto;
