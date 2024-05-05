@@ -26,13 +26,18 @@ function prePromptChatGPT(apiKey) {
 
 // Get user input for API key
 function getUserAPIKey() {
-    const apiKey = prompt("Please enter your ChatGPT API Key:");
+    let apiKey;
+    do {
+        apiKey = prompt("Please enter your ChatGPT API Key:");
+    } while (apiKey === null || apiKey.trim() === '');
+
     if (apiKey) {
         prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
     } else {
         alert("API key is required to proceed.");
     }
 }
+
 
 
 
