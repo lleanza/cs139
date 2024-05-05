@@ -35,11 +35,9 @@ function getUserAPIKey() {
         prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
     } else {
         alert("API key is required to proceed.");
+        getUserAPIKey(); // Prompt again if the user canceled
     }
 }
-
-
-
 
 // Get user input and prompt ChatGPT with it
 function getResponse() {
