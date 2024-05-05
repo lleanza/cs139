@@ -35,8 +35,6 @@ function getUserAPIKey() {
     prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
 }
 
-
-
 // Get user input and prompt ChatGPT with it
 function getResponse() {
     const apiKey = document.getElementById('apiKey').value.trim();
