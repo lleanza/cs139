@@ -25,21 +25,31 @@ function prePromptChatGPT(apiKey) {
 }
 
 function getUserAPIKey() {
-    const apiKey = prompt("Please enter your ChatGPT API Key:");
+    let apiKey = '';
+
+    while (apiKey === '' || apiKey === null) {
+        apiKey = prompt("Please enter your ChatGPT API Key:");
     
-    while (!apiKey) {
-    apiKey = prompt("Please enter your ChatGPT API Key:");
-    
-    if (apiKey === null) {
-        // If the user presses cancel
-        alert("API Key input cancelled.");
-        // Optionally, you can handle the cancellation here
-        break; // Exit the loop
-    } else if (apiKey.trim() === '') {
-        // If the user enters an empty string
-        alert("API Key cannot be empty. Please enter a valid key.");
+        if (apiKey === null) {
+            // If the user presses cancel
+            alert("API Key input cancelled.");
+            // Optionally, you can handle the cancellation here
+            break; // Exit the loop
+        } else if (apiKey.trim() === '') {
+            // If the user enters an empty string
+            alert("API Key cannot be empty. Please enter a valid key.");
         }
     }
+    
+    // Proceed with your code after getting the API key
+    if (apiKey !== null) {
+        // Your code here, using the apiKey variable
+        console.log("API Key entered:", apiKey);
+    } else {
+        // Handle the case where the user cancelled the input
+        console.log("User cancelled API Key input.");
+    }
+    
 }
 
 
