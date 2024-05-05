@@ -25,16 +25,16 @@ function prePromptChatGPT(apiKey) {
 }
 
 function getUserAPIKey() {
-    const apiKey = prompt("Please enter your ChatGPT API Key:");
-    
-    if (apiKey === null || apiKey.trim() === '') {
-        alert("API key is required to proceed.");
-        getUserAPIKey(); // Prompt again if the user canceled or entered an empty string
-    } else {
-        prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
+    let apiKey = null;
+    while (!apiKey) {
+        apiKey = prompt("Please enter your ChatGPT API Key:");
+        if (apiKey === null) {
+            alert("API key is required to proceed.");
         }
     }
+    prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
 }
+
 
 
 // Get user input and prompt ChatGPT with it
