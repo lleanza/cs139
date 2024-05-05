@@ -1,3 +1,4 @@
+// Pre-prompt ChatGPT with a message
 function prePromptChatGPT(apiKey) {
     const prePrompt = "Hello, ChatGPT!"; // The message you want to pre-prompt ChatGPT with
 
@@ -22,6 +23,18 @@ function prePromptChatGPT(apiKey) {
         console.error('Error:', error);
     });
 }
+
+// Get user input for API key
+function getUserAPIKey() {
+    const apiKey = prompt("Please enter your ChatGPT API Key:");
+    if (apiKey) {
+        prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
+    } else {
+        alert("API key is required to proceed.");
+    }
+}
+
+
 
 // Get user input and prompt ChatGPT with it
 function getResponse() {
@@ -58,10 +71,5 @@ function getResponse() {
     });
 }
 
-// Call prePromptChatGPT function when the page loads
-document.addEventListener('DOMContentLoaded', function() {
-    const apiKey = prompt("Please enter your ChatGPT API Key:");
-    if (apiKey) {
-        prePromptChatGPT(apiKey);
-    }
-});
+// Call getUserAPIKey function when the page loads
+document.addEventListener('DOMContentLoaded', getUserAPIKey);
