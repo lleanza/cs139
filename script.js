@@ -33,46 +33,4 @@ function getResponse() {
     });
 }
 
-// Get user input for API key
-function getUserAPIKey() {
-    const apiKey = prompt("Please enter your ChatGPT API Key:");
-    if (apiKey) {
-        prePromptChatGPT(apiKey); // Call prePromptChatGPT function with the entered API key
-    } else {
-        alert("API key is required to proceed.");
-    }
-}
 
-// Pre-prompt ChatGPT with a message
-function prePromptChatGPT(apiKey) {
-    const prePrompt = "Hello, ChatGPT!"; // The message you want to pre-prompt ChatGPT with
-
-    fetch('https://api.openai.com/v1/completions', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`,
-        },
-        body: JSON.stringify({
-            model: 'text-davinci-003',
-            prompt: prePrompt,
-            max_tokens: 100,
-        }),
-    })
-    .then(response => {
-        if (!response.ok) {
-            throw new Error('Network response was not ok');
-        }
-        return response.json();
-    })
-    .then(data => {
-        // Handle ChatGPT's response
-        console.log("Pre-prompt response:", data.choices[0].text.trim());
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-}
-
-// Call getUserAPIKey function when the page loads
-document.addEventListener('DOMContentLoaded', getUserAPIKey);
