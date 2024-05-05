@@ -71,4 +71,3 @@ function getUserAPIKey() {
 
 // Call getUserAPIKey function when the page loads
 document.addEventListener('DOMContentLoaded', getUserAPIKey);
-
