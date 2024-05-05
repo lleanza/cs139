@@ -25,6 +25,7 @@ function getResponse() {
     .then(response => response.json())
     .then(data => {
         const responseDiv = document.getElementById('response');
+        console.log('Response div:', responseDiv); // Print responseDiv to console
         responseDiv.innerHTML = `<p><strong>Response:</strong> ${data.choices[0].text.trim()}</p>`;
     })
     .catch(error => {
